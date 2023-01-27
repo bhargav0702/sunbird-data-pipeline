@@ -23,6 +23,7 @@
   with_items: "{{ db_name.db }}"
   async: 3600
   poll: 10
+  ignore_errors: true
 
 - name: Create archive of backup directory
   archive: path="{{ postgresql_backup_dir }}/*" dest="{{ postgresql_backup_dir }}/{{ postgresql_backup_gzip_file_name }}.zip" format=zip
